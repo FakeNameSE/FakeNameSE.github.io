@@ -1,0 +1,554 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.5.0 by Michael Rose
+  Copyright 2017 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE.txt
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>An intro to Prisoner’s Dilemma - Gcubed</title>
+
+
+
+
+<meta name="description" content="     On This Page  The first musings  The first musingsI have recently been reworking a computer science and mathematics workshop that I have been running with the United Innovators , and I thought that I might as well share my thoughts on just how interesting I think it is.">
+
+
+
+
+<meta name="author" content="Grant Garrett-Grossman">
+
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="Gcubed">
+<meta property="og:title" content="An intro to Prisoner’s Dilemma">
+
+
+  <link rel="canonical" href="https://ggarrettgrossman.ddns.net/game%20theory/coding/prisoner-dilemma/">
+  <meta property="og:url" content="https://ggarrettgrossman.ddns.net/game%20theory/coding/prisoner-dilemma/">
+
+
+
+  <meta property="og:description" content="     On This Page  The first musings  The first musingsI have recently been reworking a computer science and mathematics workshop that I have been running with the United Innovators , and I thought that I might as well share my thoughts on just how interesting I think it is.">
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2017-03-05T00:00:00-06:00">
+
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Grant Garrett-Grossman",
+      "url" : "https://ggarrettgrossman.ddns.net",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+  <meta name="google-site-verification" content="NKM9sM9laLibi1Vm1V_XF6j1OUu2PX5_dJ3rFr03s8M" />
+
+
+
+
+<!-- end SEO -->
+
+
+<link href="https://ggarrettgrossman.ddns.net/feed.xml" type="application/atom+xml" rel="alternate" title="Gcubed Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="https://ggarrettgrossman.ddns.net/assets/css/main.css">
+
+<!--[if lte IE 9]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <a class="site-title" href="https://ggarrettgrossman.ddns.net/">Gcubed</a>
+        <ul class="visible-links">
+          
+            
+            <li class="masthead__menu-item"><a href="https://ggarrettgrossman.ddns.net/portfolio/">Portfolio</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="https://ggarrettgrossman.ddns.net/year-archive/">Posts</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="https://ggarrettgrossman.ddns.net/about/">About</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="https://ggarrettgrossman.ddns.net/sitemap/">Sitemap</a></li>
+          
+        </ul>
+        <button><div class="navicon"></div></button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  
+
+  <div class="author__content">
+    <h3 class="author__name" itemprop="name">Grant Garrett-Grossman</h3>
+    
+      <p class="author__bio" itemprop="description">
+        I am your average bilingual in English and French (shooting for tri with German) computer science major!
+      </p>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="http://schema.org/Place">
+          <i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> <span itemprop="name">Chicago</span>
+        </li>
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:grant.garrettgrossman@gmail.com">
+            <meta itemprop="email" content="grant.garrettgrossman@gmail.com" />
+            <i class="fa fa-fw fa-envelope-square" aria-hidden="true"></i> Email
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://www.linkedin.com/in/grant.garrettgrossman@gmail.com" itemprop="sameAs">
+            <i class="fa fa-fw fa-linkedin-square" aria-hidden="true"></i> LinkedIn
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://github.com/FakeNameSE" itemprop="sameAs">
+            <i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub
+          </a>
+        </li>
+      
+
+      
+
+      
+        <li>
+          <a href="https://www.stackoverflow.com/users/5255447/fake-name" itemprop="sameAs">
+            <i class="fa fa-fw fa-stack-overflow" aria-hidden="true"></i> Stackoverflow
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs">
+      <i class="fa fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="An intro to Prisoner’s Dilemma">
+    <meta itemprop="description" content="     On This Page  The first musings  The first musingsI have recently been reworking a computer science and mathematics workshop that I have been running with the United Innovators , and I thought that I might as well share my thoughts on just how interesting I think it is.">
+    <meta itemprop="datePublished" content="March 05, 2017">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 class="page__title" itemprop="headline">An intro to Prisoner’s Dilemma
+</h1>
+          
+            <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  5 minute read
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        <aside class="sidebar__right">
+<nav class="toc">
+    <header><h4 class="nav__title"><i class="fa fa-file-text"></i> On This Page</h4></header>
+<ul class="toc__menu" id="markdown-toc">
+  <li><a href="#the-first-musings" id="markdown-toc-the-first-musings">The first musings</a></li>
+  <li><a href="#what-is-prisoners-dilemma" id="markdown-toc-what-is-prisoners-dilemma">What is Prisoner’s Dilemma?</a>    <ul>
+      <li><a href="#normal-prisoners-dilemma" id="markdown-toc-normal-prisoners-dilemma">Normal Prisoner’s Dilemma</a></li>
+      <li><a href="#iterated-prisoners-dilemma" id="markdown-toc-iterated-prisoners-dilemma">Iterated Prisoner’s Dilemma</a></li>
+      <li><a href="#through-the-lens-of-game-theory" id="markdown-toc-through-the-lens-of-game-theory">Through the Lens of Game Theory</a></li>
+    </ul>
+  </li>
+  <li><a href="#some-history" id="markdown-toc-some-history">Some History…</a>    <ul>
+      <li><a href="#would-you-like-to-play-a-game" id="markdown-toc-would-you-like-to-play-a-game">Would you like to play a game?</a></li>
+    </ul>
+  </li>
+  <li><a href="#axelrods-tournament" id="markdown-toc-axelrods-tournament">Axelrod’s Tournament</a>    <ul>
+      <li><a href="#the-tournament" id="markdown-toc-the-tournament">The Tournament</a></li>
+      <li><a href="#so-which-strategy-won" id="markdown-toc-so-which-strategy-won">So, which strategy won?</a>        <ul>
+          <li><a href="#tit-for-tat" id="markdown-toc-tit-for-tat">Tit for Tat</a></li>
+          <li><a href="#variants-of-tit-for-tat" id="markdown-toc-variants-of-tit-for-tat">Variants of Tit for Tat</a></li>
+          <li><a href="#my-own-strategy" id="markdown-toc-my-own-strategy">My own strategy!</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#the-only-way-to-win-is-not-to-play" id="markdown-toc-the-only-way-to-win-is-not-to-play">The Only Way to Win is Not to Play…</a></li>
+</ul>
+
+  </nav>
+</aside>
+<h2 id="the-first-musings">The first musings</h2>
+<p>I have recently been reworking a computer science and mathematics workshop that I have been running with the <a href="/portfolio/united-innovators/">United Innovators</a> , and I thought that I might as well share my thoughts on just how interesting I think it is.</p>
+
+<h2 id="what-is-prisoners-dilemma">What is Prisoner’s Dilemma?</h2>
+<h3 id="normal-prisoners-dilemma">Normal Prisoner’s Dilemma</h3>
+<p>Prisoner’s Dilemma is a classical game theory problem in which two prisoners are given the option to defect (betray the other) or cooperate (stay tight lipped). These actions carry different incentives depending on the actions of the opponent that can be represented like so:
+<img src="/assets/images/pd-teaser.png" alt="Different consequences for actions" title="Different consequences for actions" /></p>
+
+<p>Thus, when playing a single game the best option is always to defect because it minimizes the potential cost while maximizing the potential reward, especially since the opponent cannot retaliate later.</p>
+
+<h3 id="iterated-prisoners-dilemma">Iterated Prisoner’s Dilemma</h3>
+<p>However, things get more interesting when we spice them up with a twist on the game, iterated prisoner’s dilemma. In this case, the players play multiple successive games, both aware of the other’s past moves. This means that there is a possibility for retaliation, creating a need for more nuanced strategies.</p>
+
+<h3 id="through-the-lens-of-game-theory">Through the Lens of Game Theory</h3>
+<p>Game theory is as Wikipedia puts,</p>
+<blockquote>
+  <p>The study of mathematical models of conflict and cooperation between intelligent rational decision-makers.”
+<cite>Wikipedia</cite></p>
+</blockquote>
+
+<p>In other words, it deals with how to  maximize rewards and minimize negative outcomes when competing and cooperating with other selfish parties.</p>
+
+<p>If we translate iterative prisoner’s dilemma into the terms of game theory, this means that we get a game that is:</p>
+
+<dl>
+  <dt><strong>Symmetrical</strong></dt>
+  <dd>Both parties have equal power</dd>
+  <dt><strong>Non-Zero Sum</strong></dt>
+  <dd>Net result is not necessarily 0, so both players can win or lose</dd>
+  <dt><strong>Simultaneous</strong></dt>
+  <dd>Players make their moves simultaneously</dd>
+  <dt><strong>Imperfect Information</strong></dt>
+  <dd>Each player does not know what the other one is doing</dd>
+  <dt><strong>Discrete Game</strong></dt>
+  <dd>Moves are discrete and binary</dd>
+</dl>
+
+<h2 id="some-history">Some History…</h2>
+<p>At this point I think that its interesting to inject some historical context into this problem.</p>
+
+<h3 id="would-you-like-to-play-a-game">Would you like to play a game?</h3>
+<p>Yes, I did just manage to tie this in with <em>Wargames</em>. Prisoner’s Dilemma actually does originate from the Cold War when the United States was struggling to figure out how to keep the Arms Race under control without over-escalating to war. Around the time of the Cuban Missile Crisis they came to an organization called the <em>Rand Corporation</em>, an American nonprofit global policy think tank made up of mathematicians, economists, and public policy experts. These academics subsequently modeled the scenario  using the mathematical model of Prisoner’s Dilemma and made pioneering working studying this problem, all to avoid nuclear war (or win one when they thought it was possible to).</p>
+
+<h2 id="axelrods-tournament">Axelrod’s Tournament</h2>
+<h3 id="the-tournament">The Tournament</h3>
+<p>In the 80’s a professor named Robert Axelrod decided to try a new approach to Prisoner’s Dilemma. He setup a round robin tournament in which he excepted code submissions from around the world to compete as bots. The interesting thing is that he discovered that it is the “greedy” strategies, those that are the most selfish, that in the long run did the worst whereas within that scope it was the more altruistic strategies that began to shine. This lead him to conclude that cooperation between organisms might actually be the result of natural selection, with the most strictly selfish (over the short term) behaviors that in the end lead to failure.</p>
+
+<h3 id="so-which-strategy-won">So, which strategy won?</h3>
+<h4 id="tit-for-tat">Tit for Tat</h4>
+<p>While it obviously depends on the competitors, the winner of the tournament was a remarkably short and simple strategy called <em>Tit for Tat</em>. The rules for it were simple:</p>
+<ol>
+  <li>Always start by cooperating</li>
+  <li>Repeat the same move the opponent did the move before
+In other words, this algorithm tries to quick start a virtuous cycle of cooperation, then rewards further cooperation from the opponent with cooperation and penalizes defections by retaliating with a defection. This avoids the costly situation of cooperating when the opponent defects, while still attempting to construct a virtuous cycle of mutual cooperation, the only move in the game that truly benefits both players.</li>
+</ol>
+
+<h4 id="variants-of-tit-for-tat">Variants of Tit for Tat</h4>
+<p>Over the years, a couple of variants of <em>Tit for Tat</em> have emerged. Some like <em>Two Tits for Tat</em> are a little stricter when it comes to retaliation by retaliating with a defection for two turns instead of one, while others have introduced the concept of forgiveness, that the bot has a certain probability of cooperating even if the opponent defects.</p>
+
+<h4 id="my-own-strategy">My own strategy!</h4>
+<p>The entire concept of Prisoner’s Dilemma, the mix between geopolitics, mathematics, and computer science, fascinated me enough that not only have I run a workshop on it (and  I’m planning on doing another one soon), but I actually came up with my own original strategy called <em>Dynamic Two Tits for Tat</em> which  you can take a closer look at in my portfolio <a href="/portfolio/Axelrod-strategy/">here</a> . In fact, if you want to take a closer look, it is now a strategy integrated into the Axelrod repository, an awesome open source project that you can take a look at <a href="https://github.com/Axelrod-Python/Axelrod">here</a>, and which allows you to run full blown matches and tournaments between strategies (and so much more)!</p>
+
+<p>I digress. My own minor contribution to this field is another variant of <em>Tit for Tat</em>. It  is actually based off of <em>Two Tits for Tat</em>, but integrates a probability of forgiveness, meaning cooperating even when the opponent has defected within the last two turns, which is calculated as the ration of the opponents number of defections and total number of moves: 
+<img src="/assets/images/forgiveness.svg" alt="number of defections over total number of moves" title="Calculation of forgiveness" /></p>
+
+<p>This represents in a sense just how nice the opponent is, and thus allows my bot to determine how forgiving it should be of its opponent based off of this (which is also the odds that any move by the opponent will be a defection).</p>
+
+<h2 id="the-only-way-to-win-is-not-to-play">The Only Way to Win is Not to Play…</h2>
+<p>Or maybe just to outsmart them with a better strategy (just kidding, nuclear war is unwinnable).</p>
+
+<p>And on that bright note, I hope you enjoyed my write up on the Prisoner’s Dilemma. I can’t encourage you enough to check out the Axelrod repository <a href="https://github.com/Axelrod-Python/Axelrod">here</a>, or even my portfolio section on my strategy  <a href="/portfolio/Axelrod-strategy/">here</a> if this interests you.</p>
+
+<blockquote>
+  <p>Dr. Strangelove: The whole point of the doomsday machine is lost…if you keep it a secret! Why didn’t you tell the world, eh?!
+Russian Ambassador: It was to be announced at the Party Congress on Monday. As you know, the Premier loves surprises.
+<cite>Dr. Strangelove: Or How I Learned to Stop Worrying and Love the Bomb</cite></p>
+</blockquote>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="https://ggarrettgrossman.ddns.net/tags/#intro" class="page__taxonomy-item" rel="tag">intro</a><span class="sep">, </span>
+    
+      
+      
+      <a href="https://ggarrettgrossman.ddns.net/tags/#prisonner-s-dilemma" class="page__taxonomy-item" rel="tag">prisonner's dilemma</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="https://ggarrettgrossman.ddns.net/categories/#coding" class="page__taxonomy-item" rel="tag">coding</a><span class="sep">, </span>
+    
+      
+      
+      <a href="https://ggarrettgrossman.ddns.net/categories/#game-theory" class="page__taxonomy-item" rel="tag">game theory</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2017-03-05T00:00:00-06:00">March 05, 2017</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=An intro to Prisoner's Dilemma https://ggarrettgrossman.ddns.net/game%20theory/coding/prisoner-dilemma/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https://ggarrettgrossman.ddns.net/game%20theory/coding/prisoner-dilemma/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=https://ggarrettgrossman.ddns.net/game%20theory/coding/prisoner-dilemma/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://ggarrettgrossman.ddns.net/game%20theory/coding/prisoner-dilemma/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="https://ggarrettgrossman.ddns.net/webdev/tutorial/custom-404-message/" class="pagination--pager" title="Sexy, sexy custom 404 pages with Apache
+">Previous</a>
+    
+    
+      <a href="https://ggarrettgrossman.ddns.net/machine%20learning/coding/conspiracy-detector/" class="pagination--pager" title="Conspiracy Detector
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+    
+    
+      <li><a href="http://github.com/FakeNameSE"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    
+    <li><a href="https://ggarrettgrossman.ddns.net/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2018 Grant Garrett-Grossman. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    <script src="https://ggarrettgrossman.ddns.net/assets/js/main.min.js"></script>
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-100808759-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>
