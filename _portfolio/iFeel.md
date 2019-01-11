@@ -66,7 +66,7 @@ None, I just had a lot of fun and learned quite a bit working on this both durin
 ## But wait, there's more!
 I have been keeping this project under somewhat active development and any ideas, recommendations, and even code requests are welcome. Currently, I am eyeing possibly adding notifications and adding local caching of some messages. 
 
-The code is open source, and you can check it out on Github [here](https://github.com/CS196Illinois/iFeel).
+The code is open source, and you can check it out on Github [here](https://github.com/FakeNameSE/iFeel).
 
 Alternatively, if you are just interested in playing around with the app, you can just download the Expo Client app, search for [iFeel](https://expo.io/@fakenamese/iFeel) from it, and seamlessly run it on your phone (it will run off of my free tier Firebase project though, so please do not do anything too excessive with it).
 
