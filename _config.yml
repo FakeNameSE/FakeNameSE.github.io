@@ -13,7 +13,7 @@ locale                   : "en"
 title                    : "Gcubed"
 title_separator          : "-"
 name                     : "Grant Garrett-Grossman"
-description              : "My sexy, sexy personal site."
+description              : "My personal website."
 url                      : "https://ggarrettgrossman.ddns.net"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "FakeNameSE/FakeNameSE.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -82,7 +82,7 @@ analytics:
 author:
   name             : "Grant Garrett-Grossman"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am your average bilingual in English and French (shooting for tri with German) computer science major!"
+  bio              : "My name is Grant Garrett-Grossman. I'm a Computer Science major and Global Studies minor (with a thematic focus on Governance, Conflict, and Resolution) interested in computer science and international security."
   location         : "Chicago"
   email            : "grant.garrettgrossman@gmail.com"
   uri              :
