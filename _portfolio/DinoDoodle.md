@@ -34,17 +34,20 @@ Features of this app beyond the bare bones of a drawing app include:
   * An interface to ply the user with an assortment of random dinosaur facts
   that they can consult for inspiration.
 
+## More Information and Challenges Encountered
+A more complete explanation of the project, its proposal, and a log detailing my work on it are all available and can be found in the `README.md`, `PROPOSAL.md`, and `DEVELOPMENT.md` files in the [project repository](https://github.com/FakeNameSE/CS_126_Final_Project). `DEVELOPMENT.md` does a pretty good job of documenting chronologically in a fun style my approach to the project, the issues encountered, and how I solved them.
+
 ## Screenshots!
-{% include gallery caption="Screenshots of app. From left to right: splash, login, group selection, chat, input dialog, account creation with input validation error, and chat creation screens." %}
+{% include gallery caption="Screenshots of DinoDoodle. From left to right: screen recording of demo and beautiful example drawing of a dinosaur." %}
 
 ## Technical Information!
 DinoDoodle is built with:
   * C++ with OpenFramworks for the GUI.
-  * OpenFramworks for the canvas framebuffer rendering and the plugin ofxGui for
+  * OpenFrameworks for the canvas framebuffer rendering and the plugin ofxGui for
   the GUI.
   * JsonCPP to parse the dinosaur JSON data.
 
 ## Awards
 None, but who doesn't like drawing apps and dinosaurs!
 
-The code is open source, and you can check it out on Github [here](https://github.com/FakeNameSE/iFeel).
+The code is open source, and you can check it out on Github [here](https://github.com/FakeNameSE/CS_126_Final_Project).
