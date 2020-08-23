@@ -37,7 +37,8 @@ at the University of Illinois at Urbana-Champaign. The project goal was to offlo
 2. A Character device driver kernel module to communicate with the FPGA.
 3. A user space C library which wrapped around the kernel module to facilitate using the FPGA within existing code by just calling a single function to perform an operation on the FPGA.
 
-Over the course of this project, my teammates and I learned quite a lot about just how tough hardware is. We spent plenyt of time debugging our UART modules so that the FPGA could send and receive bytes while still having enough time to learn about systems programming with serial protocols and basic Linux kernel module (specifically character device drivers) development. Ultimately, we managed to get a fully working system capable of sending two bytes to the FPGA, XORing them, and sending them back.
+## A Few of the Challenges Encountered
+Over the course of this project, my teammates and I learned quite a lot about just how tough hardware is. We spent plenty of time debugging our UART modules so that the FPGA could send and receive bytes while still having enough time to learn about systems programming with serial protocols and basic Linux kernel module (specifically character device drivers) development. Ultimately, we managed to get a fully working system capable of sending two bytes to the FPGA, XORing them, and sending them back.
 
 ## Pictures!
 {% include gallery caption="From left to right: FPGA Accelerator XORing some bytes using the example program, FPGA LEDs lighting up in response to byte received while debugging, diagram of finite state machine upon which the control circuit of the FPGA is based, and block diagram of major components in the FPGA's datapath." %}
