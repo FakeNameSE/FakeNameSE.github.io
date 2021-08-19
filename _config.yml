@@ -21,7 +21,7 @@ teaser                   : # path of fallback teaser image, e.g. "/assets/images
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
 comments:
-  provider               : "staticman" # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "custom"
+  provider               : # "staticman" # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "custom"
   disqus:
     shortname            : # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
   discourse:
@@ -73,9 +73,9 @@ social:
 
 # Analytics
 analytics:
-  provider               : "google-universal" # false (default), "google", "google-universal", "custom"
+  provider               : # "google-universal" # false (default), "google", "google-universal", "custom"
   google:
-    tracking_id          : "UA-100808759-1"
+    tracking_id          : # "UA-100808759-1"
 
 
 # Site Author
@@ -83,7 +83,7 @@ author:
   name             : "Grant Garrett-Grossman"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "My name is Grant Garrett-Grossman. I'm a Computer Science major and Global Studies minor (with a thematic focus on Governance, Conflict, and Resolution) interested in computer science and international security."
-  location         : "Chicago"
+  location         :
   email            : "grant.garrettgrossman@gmail.com"
   uri              :
   bitbucket        :
@@ -97,7 +97,7 @@ author:
   keybase          :
   instagram        :
   lastfm           :
-  linkedin         : "grant.garrettgrossman@gmail.com"
+  linkedin         : "https://www.linkedin.com/in/grant-g-386910140/"
   pinterest        :
   soundcloud       :
   stackoverflow    : "5255447/fake-name" # "123456/username"

@@ -4,10 +4,9 @@ title: "Portfolio"
 permalink: /portfolio/
 excerpt: "Here is a list of neat things that I have made or worked on"
 ---
-Here is a list of neat things that I have made or worked on. Feel free to check them out (hence the reason they are online):
+Here is a list of some neat things that I have made or worked on. Feel free to check them out (hence the reason they are online):
 
-Also, you can check out my resume 
-[here]({{ site.baseurl }}/assets/documents/Grant-Garrett-Grossman_resume.pdf){: .btn .btn--info}
+My resume is available upon request. If interested, please email [me](mailto:grant.garrettgrossman@gmail.com).
 
 ***
 
